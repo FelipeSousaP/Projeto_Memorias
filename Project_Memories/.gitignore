@@ -1,0 +1,47 @@
+# Pastas geradas pela Unity (não devem ser versionadas)
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Arquivos de log e cache do Visual Studio/Rider/OS
+*.log
+.vs/
+.gradle/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Arquivos específicos de Asset Store e Plugins
+/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/Plugins/Editor/JetBrains*
+
+# Builds e pacotes exportados
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Meta files gerados automaticamente (só ignore se o asset também for ignorado)
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Crash reports
+sysinfo.txt
+mono_crash.*
