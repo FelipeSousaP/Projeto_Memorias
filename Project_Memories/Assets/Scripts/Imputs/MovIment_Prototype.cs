@@ -9,19 +9,18 @@ public class MovIment_Prototype : MonoBehaviour
 
     private void OnEnable()
     {
-        //MoveAction.action.Enable();
-        MoveAction.action.performed += Move;
-        MoveAction.action.canceled += Move;
+        if (MoveAction != null) // para não chamar um evento que não existe
+        {
+            MoveAction.action.performed += Move;
+            MoveAction.action.canceled += Move;
+        }
     }
     private void OnDisable()
     {
-        //MoveAction.action.Disable();
         MoveAction.action.performed -= Move;
         //Sem o canceled é infinito
         MoveAction.action.canceled -= Move;
-
     }
-
     private void Move(InputAction.CallbackContext callbackContext)
     {
         valor = callbackContext.ReadValue<Vector2>();
