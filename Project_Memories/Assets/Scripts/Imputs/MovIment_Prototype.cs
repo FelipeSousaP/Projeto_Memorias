@@ -27,7 +27,7 @@ public class MovIment_Prototype : MonoBehaviour
     }
     void Update()
     {
-        Vector3 dir = new Vector3(valor.x,0,valor.y);
+        Vector3 dir = new Vector3(valor.x, 0, valor.y);
         transform.Translate(dir * Speed * Time.deltaTime);
     }
 }
