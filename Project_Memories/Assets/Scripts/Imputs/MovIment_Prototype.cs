@@ -6,7 +6,11 @@ public class MovIment_Prototype : MonoBehaviour
     [SerializeField] InputActionReference MoveAction;
     [SerializeField] float Speed;
     Vector2 valor;
-
+    Transform CAMtransform;
+    private void Start()
+    {
+        CAMtransform = Camera.main.transform;
+    }
     private void OnEnable()
     {
         if (MoveAction != null) // para não chamar um evento que não existe
@@ -27,7 +31,15 @@ public class MovIment_Prototype : MonoBehaviour
     }
     void Update()
     {
-        Vector3 dir = new Vector3(valor.x, 0, valor.y);
-        transform.Translate(dir * Speed * Time.deltaTime);
+        Vector3 FrenteEtras = CAMtransform.forward;
+        Vector3 Lado = CAMtransform.right;
+        #region Controle de dados
+        FrenteEtras.y = 0f;
+        Lado.y = 0f;
+        Lado.Normalize();
+        FrenteEtras.Normalize(); // não é possivel misturar void com float
+        #endregion
+        Vector3 Direção = (FrenteEtras * valor.y) + (Lado * valor.x);
+        transform.Translate(Direção * Speed * Time.deltaTime,Space.World);//Em relação ao mundo
     }
 }
