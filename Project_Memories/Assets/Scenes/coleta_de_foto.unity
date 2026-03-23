@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   JumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   rb: {fileID: 44338329}
-  Speed: 6
+  Speed: 21.91
   TempoPraPular: 2
   timer: 0
   IsJumping: 0
