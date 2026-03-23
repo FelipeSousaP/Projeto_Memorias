@@ -30,7 +30,7 @@ public class MovIment_Prototype : MonoBehaviour
     {
         valor = callbackContext.ReadValue<Vector2>();
     }
-    void Update()
+    void FixedUpdate()
     {
         Vector3 FrenteEtras = CAMtransform.forward;
         Vector3 Lado = CAMtransform.right;

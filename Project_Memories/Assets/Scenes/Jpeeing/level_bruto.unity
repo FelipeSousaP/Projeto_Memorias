@@ -3085,8 +3085,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 262984112}
     m_Modifications:
+    - target: {fileID: 569169935242011665, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320228269012821125, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5192438858758323658, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192438858758323658, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192438858758323658, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5334460888779545364, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
@@ -3127,6 +3143,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5334460888779545364, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332500457783145483, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

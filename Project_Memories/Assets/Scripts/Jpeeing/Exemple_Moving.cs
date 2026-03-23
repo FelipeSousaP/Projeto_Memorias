@@ -15,7 +15,7 @@ public class Exemple_Moving : MonoBehaviour {
         SetPoints();
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         MoveThroughPoint();
     }
 
