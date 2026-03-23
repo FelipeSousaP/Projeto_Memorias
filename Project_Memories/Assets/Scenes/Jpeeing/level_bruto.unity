@@ -129,11 +129,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1569858531840189707, guid: a0a76aa26a16ce744815d39211e41e18, type: 3}
       propertyPath: m_Volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3259755363472963028, guid: a0a76aa26a16ce744815d39211e41e18, type: 3}
       propertyPath: m_Volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4663594827940826177, guid: a0a76aa26a16ce744815d39211e41e18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2877,11 +2877,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1569858531840189707, guid: a0a76aa26a16ce744815d39211e41e18, type: 3}
       propertyPath: m_Volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3259755363472963028, guid: a0a76aa26a16ce744815d39211e41e18, type: 3}
       propertyPath: m_Volume
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4663594827940826177, guid: a0a76aa26a16ce744815d39211e41e18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3085,18 +3085,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 262984112}
     m_Modifications:
-    - target: {fileID: 856698164471406818, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: Speed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 856698164471406818, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: TempoPraPular
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1302930982699737966, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: Speed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5192438858758323658, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3141,14 +3129,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6279848970236220246, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 8b5af2de010d5714a99509e6e5f5f768, type: 2}
-    - target: {fileID: 9046845668103386712, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 93d9ab423a583b948b76f6dbd8a244f9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
