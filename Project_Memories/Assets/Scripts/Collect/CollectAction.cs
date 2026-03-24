@@ -3,15 +3,17 @@ using UnityEngine;
 public class CollectAction : MonoBehaviour
 {
     //Codigo destinado para a area de coleta de fotos
+    objectPool<GameObject> pool;
+
+    [Header("Fotos")]
+    [SerializeField] CanvasGroup Foto;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Photos>(out Photos component)) //Substituir por GetComponent<Photo>() 
+        if (other.TryGetComponent<Photos>(out Photos component))  
         {
             Debug.Log($"Coletado: {component.name}");
-            //adicionar em uma lista
-            PhotoListManeger.Instance.SetPhotos(other.gameObject);
+            pool.SetPool(other.gameObject);        
             other.gameObject.SetActive(false);
-            Debug.Log($"Fotos: {PhotoListManeger.Instance.GetPhotoNumber()} ");
         }
     }
 }
