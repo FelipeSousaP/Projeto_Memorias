@@ -13,14 +13,14 @@ public class objectPool<T> where T: class // estou dizendo para ele receber CLAS
         }
     }
 
-    public int Total() => Pool.Count;
     public T TryGetPool() // Usar Uma condicional
     {
-        if (Pool.Count > 0)
-        {
-            return Pool.Dequeue(); // o paramentro recebe um objeto que sai da fila
-        }
-        return default(T);
+        return Pool.Count > 0 ? Pool.Dequeue() : default(T);
+        /* if (Pool.Count > 0)
+         {
+             return Pool.Dequeue(); // o paramentro recebe um objeto que sai da fila
+         }
+         return default(T);*/
         // nova coisa que descobri: Se T for uma classe, ele retorna null. Se T for um número, ele retorna 0.
     }
 }

@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class CollectAction : MonoBehaviour
 {
-    //Codigo destinado para a area de coleta de fotos
-    objectPool<GameObject> pool;
-
-    [Header("Fotos")]
-    [SerializeField] CanvasGroup Foto;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Photos>(out Photos component))  
+        if (other.TryGetComponent<Photos>(out Photos Foto))
         {
-            Debug.Log($"Coletado: {component.name}");
-            pool.SetPool(other.gameObject);        
-            other.gameObject.SetActive(false);
+            // 1. Ativa a UI
+            if (Foto.foto != null)
+            {
+                UIManeger.Instance.Show(Foto.foto);
+            }
+
+            if (Foto.chefe != null)
+            {
+                Foto.chefe.RecolherFoto(other.gameObject);
+            }
+            else
+            {
+                other.gameObject.SetActive(false);
+            }
+
         }
     }
 }
