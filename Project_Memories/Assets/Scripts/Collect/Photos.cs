@@ -3,5 +3,7 @@ using UnityEngine;
 public class Photos : MonoBehaviour
 {
     public string name = "Teste";
-    // Vou Conter o codigo da rotação do objeto
+    public CanvasGroup foto;
+    
+    [HideInInspector] public PhotoSpawner chefe;
 }
