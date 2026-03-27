@@ -3,18 +3,17 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Mouse Settings")]
+    [Header("Camera Settings")]
     [SerializeField] InputActionReference MouseAction;
     [SerializeField] bool IsRotating;
 
     [Header("Cursor & Camera")]
     [SerializeField] GameObject cursor;
     [SerializeField] GameObject Cinemachine;
-    //[SerializeField] GameObject ThirdPersonCamera;
-   
+    Vector2 Mousepos;
     private void OnEnable()
     {
-        if(MouseAction != null)
+        if (MouseAction != null)
         {
             MouseAction.action.performed += RotateCamera;
             MouseAction.action.canceled += RotateCamera;
@@ -23,34 +22,33 @@ public class CameraController : MonoBehaviour
     public void RotateCamera(InputAction.CallbackContext callbackContext)
     {
         IsRotating = callbackContext.ReadValueAsButton();
+        if (IsRotating) 
+        {
+            Mousepos = Mouse.current.position.ReadValue(); // ver posição atual do mouse
+        }
     }
     void Update()
     {
-        #region Cursor seguindo o mouse
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        cursor.transform.position = mousePosition; //O cursor fake
-        Vector2 PosiçãoAntiga = cursor.transform.position;
-        Cursor.visible = false; // Cursor real
-        #endregion
-        //imagem seguindo o cursor
         if (IsRotating)
         {
-            Cursor.lockState = CursorLockMode.Confined;// Congelar o cursor no ponto em especifico
-            cursor.transform.position = PosiçãoAntiga;
-
-            // imagem do cursor congela
-            Cinemachine.SetActive(IsRotating);// ativar cinemachine
+            Cursor.lockState = CursorLockMode.Locked;// Congelar o cursor no ponto em especifico
+            cursor.transform.position = Mousepos; // ficar preso na posição antiga
+            Cursor.visible = false;
+            Cinemachine.SetActive(true); // ATIVAR CINEMACHINE
         }
         else
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = false;
+            Cinemachine.SetActive(false); // DESLIGA a cinemachine
+            Cursor.lockState = CursorLockMode.None; // deixar mouse livre
+            Cursor.visible = true;
+
+            Vector2 mousepos = Mouse.current.position.ReadValue(); // ver posição atual do mouse
+            cursor.transform.position = mousepos; //posição do cursor igual a mouse
         }
     }
-
     private void OnDisable()
     {
-         MouseAction.action.performed -= RotateCamera;    
-         MouseAction.action.canceled -= RotateCamera;    
+        MouseAction.action.performed -= RotateCamera;
+        MouseAction.action.canceled -= RotateCamera;
     }
 }
