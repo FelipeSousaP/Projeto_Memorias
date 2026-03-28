@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b820df0c2cb7d4a83a7de8a83a2db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhotoSpawner
-  photoPrefab: {fileID: 4244452910393349340, guid: 3bc044f5ce5c8c9409a0bb01dca27a3b, type: 3}
+  photoPrefab: {fileID: 146098267539183415, guid: ad6e84d5e3ac69a4fa9e5203a95e1cfa, type: 3}
   spawnPoints:
   - {fileID: 750879863}
   - {fileID: 1220467221}
