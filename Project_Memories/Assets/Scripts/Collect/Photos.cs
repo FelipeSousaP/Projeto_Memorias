@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Photos : MonoBehaviour
 {
-    public string name = "Teste";
+    public string varStringName = "Teste";
     public CanvasGroup foto;
     
     [HideInInspector] public PhotoSpawner chefe;
