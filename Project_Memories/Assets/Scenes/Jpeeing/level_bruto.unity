@@ -511,7 +511,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133112808}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -813,6 +813,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3759f1dbec8f5be4ba9f50ca996b3db0, type: 3}
+--- !u!114 &317035038 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4842826533462947643, guid: 3759f1dbec8f5be4ba9f50ca996b3db0, type: 3}
+  m_PrefabInstance: {fileID: 317035037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65e62482ffe35b4fabd06b79f776d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Exemple_SceneControler
 --- !u!1001 &355684150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4547,6 +4558,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2739843988445262840, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: sceneControler
+      value: 
+      objectReference: {fileID: 317035038}
     - target: {fileID: 4420509735969801980, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.495
