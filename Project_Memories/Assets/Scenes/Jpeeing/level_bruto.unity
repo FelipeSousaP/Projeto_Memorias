@@ -5061,13 +5061,9 @@ PrefabInstance:
       propertyPath: sceneControler
       value: 
       objectReference: {fileID: 317035038}
-    - target: {fileID: 4669144324239914164, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 4790527382470136523, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_InitialEventNameOverriden
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4669144324239914164, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4.31
       objectReference: {fileID: 0}
     - target: {fileID: 5192438858758323658, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_Name

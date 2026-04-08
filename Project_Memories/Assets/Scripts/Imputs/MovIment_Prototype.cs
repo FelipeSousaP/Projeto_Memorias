@@ -17,11 +17,11 @@ public class MovIment_Prototype : MonoBehaviour
     }
     private void OnEnable()
     {
+        
         if (MoveAction != null) // para não chamar um evento que não existe
         {
             MoveAction.action.performed += Move;
             MoveAction.action.canceled += Move;
-            _walkParticles.Play();
         }
     }
     private void OnDisable()
@@ -29,11 +29,15 @@ public class MovIment_Prototype : MonoBehaviour
         MoveAction.action.performed -= Move;
         //Sem o canceled é infinito
         MoveAction.action.canceled -= Move;
-        _walkParticles.Stop();
     }
     private void Move(InputAction.CallbackContext callbackContext)
     {
         valor = callbackContext.ReadValue<Vector2>();
+        if (valor.y > 0 || valor.x > 0) {
+            _walkParticles.SendEvent("OnWalking");
+        } else {
+            _walkParticles.SendEvent("OnStopWalking");
+        }
     }
     void FixedUpdate()
     {

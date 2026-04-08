@@ -16,7 +16,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614567}
-  m_UIPosition: {x: 701, y: -584}
+  m_UIPosition: {x: 689, y: -584}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -25,10 +25,10 @@ MonoBehaviour:
   m_Data: {fileID: 8926484042661614529}
   m_InputFlowSlot:
   - link:
-    - context: {fileID: 8926484042661614613}
+    - context: {fileID: 8926484042661614634}
       slotIndex: 0
   - link:
-    - context: {fileID: 8926484042661614615}
+    - context: {fileID: 8926484042661614636}
       slotIndex: 0
   m_OutputFlowSlot:
   - link:
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614543}
   - {fileID: 8926484042661614546}
-  m_UIPosition: {x: 703, y: 373}
+  m_UIPosition: {x: 690, y: 373}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -169,7 +169,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"space":0,"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":1.0,"y":1.0,"z":1.0}}'
+      m_SerializableObject: '{"center":{"x":0.0,"y":-0.36412692070007326,"z":0.0},"size":{"x":1.0,"y":1.0,"z":1.0}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -194,10 +194,10 @@ MonoBehaviour:
   - title: Minimal
     position:
       serializedVersion: 2
-      x: 464
-      y: -821
+      x: 452
+      y: -826
       width: 898
-      height: 1691
+      height: 1696
     contents:
     - model: {fileID: 114023846229194376}
       id: 0
@@ -211,20 +211,20 @@ MonoBehaviour:
     - model: {fileID: 114063133802684794}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614613}
+    - model: {fileID: 8926484042661614634}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614615}
+    - model: {fileID: 8926484042661614636}
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 464
-    y: -821
+    x: 452
+    y: -826
     width: 898
-    height: 1691
+    height: 1696
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,13 +244,14 @@ MonoBehaviour:
   - {fileID: 114946465509916290}
   - {fileID: 114780028408030698}
   - {fileID: 114063133802684794}
-  - {fileID: 8926484042661614613}
-  - {fileID: 8926484042661614615}
+  - {fileID: 8926484042661614634}
+  - {fileID: 8926484042661614636}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_UIInfos: {fileID: 114340500867371532}
-  m_CustomAttributes: []
+  m_CustomAttributes:
+  - {fileID: 8926484042661614631}
   m_ParameterInfo: []
   m_ImportDependencies: []
   m_GraphVersion: 19
@@ -319,7 +320,7 @@ MonoBehaviour:
   particlePerStripCount: 16
   needsComputeBounds: 0
   boundsMode: 0
-  m_Space: 0
+  m_Space: 1
 --- !u!114 &114512514798047786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +435,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 701, y: 222}
+  m_UIPosition: {x: 690, y: 223}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -538,7 +539,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614571}
   - {fileID: 8926484042661614578}
   - {fileID: 8926484042661614581}
-  m_UIPosition: {x: 701, y: -303}
+  m_UIPosition: {x: 689, y: -303}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -610,7 +611,7 @@ MonoBehaviour:
   - {fileID: 114935892456706286}
   - {fileID: 114538391275492396}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 114307113894698210}
   m_MasterData:
@@ -1579,7 +1580,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.OrientedBox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":-0.01695394515991211,"y":-0.42073673009872439,"z":-0.32367706298828127},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":0.6956014633178711,"y":0.15852677822113038,"z":0.3526458740234375}}'
+      m_SerializableObject: '{"center":{"x":-0.01695394515991211,"y":-0.8905127048492432,"z":-0.13372260332107545},"angles":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":0.6956014633178711,"y":0.15852677822113038,"z":0.3526458740234375}}'
     m_Space: 0
   m_Property:
     name: Box
@@ -1993,7 +1994,23 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661614613
+--- !u!114 &8926484042661614631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fe1c3ae22b45dea22da94bb7969561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.VisualEffectGraph.Editor::UnityEditor.VFX.VFXCustomAttributeDescriptor
+  m_Description: 
+  m_AttributeName: IsWalking
+  m_Type: 4
+  m_IsExpanded: 0
+--- !u!114 &8926484042661614634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2008,21 +2025,21 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 489, y: -762}
+  m_UIPosition: {x: 477, y: -767}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots: []
-  m_Label: WalkingEvent
-  m_Data: {fileID: 8926484042661614614}
+  m_Label: 
+  m_Data: {fileID: 8926484042661614635}
   m_InputFlowSlot:
   - link: []
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 114023846229194376}
       slotIndex: 0
-  eventName: OnPlay
---- !u!114 &8926484042661614614
+  eventName: OnWalking
+--- !u!114 &8926484042661614635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2042,8 +2059,8 @@ MonoBehaviour:
   m_UISuperCollapsed: 0
   title: 
   m_Owners:
-  - {fileID: 8926484042661614613}
---- !u!114 &8926484042661614615
+  - {fileID: 8926484042661614634}
+--- !u!114 &8926484042661614636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2058,21 +2075,21 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 913, y: -762}
+  m_UIPosition: {x: 901, y: -767}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots: []
   m_Label: 
-  m_Data: {fileID: 8926484042661614616}
+  m_Data: {fileID: 8926484042661614637}
   m_InputFlowSlot:
   - link: []
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 114023846229194376}
       slotIndex: 1
-  eventName: OnStop
---- !u!114 &8926484042661614616
+  eventName: OnStopWalking
+--- !u!114 &8926484042661614637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2092,4 +2109,4 @@ MonoBehaviour:
   m_UISuperCollapsed: 0
   title: 
   m_Owners:
-  - {fileID: 8926484042661614615}
+  - {fileID: 8926484042661614636}
