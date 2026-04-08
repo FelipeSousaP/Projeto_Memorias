@@ -5061,6 +5061,14 @@ PrefabInstance:
       propertyPath: sceneControler
       value: 
       objectReference: {fileID: 317035038}
+    - target: {fileID: 4669144324239914164, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669144324239914164, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.31
+      objectReference: {fileID: 0}
     - target: {fileID: 4790527382470136523, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_InitialEventNameOverriden
       value: 0
@@ -5108,6 +5116,10 @@ PrefabInstance:
     - target: {fileID: 5334460888779545364, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359488015742520846, guid: c8d7d31ffb54ccf4b8ea6b870ddf704c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.068
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

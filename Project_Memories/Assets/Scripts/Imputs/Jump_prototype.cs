@@ -1,6 +1,7 @@
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class Jump_prototype : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Jump_prototype : MonoBehaviour
     [SerializeField] float TempoPraPular;
     [SerializeField] float timer;
     [SerializeField] bool IsJumping;
+    [SerializeField] private VisualEffect _jumpParticles;
 
     private void OnEnable()
     {
@@ -28,6 +30,7 @@ public class Jump_prototype : MonoBehaviour
     public void Jump(InputAction.CallbackContext callbackContext)
     {
         IsJumping = callbackContext.action.IsPressed();
+
     }
     void Update()
     {
@@ -36,6 +39,11 @@ public class Jump_prototype : MonoBehaviour
         {
             rb.AddForce(Vector3.up * Speed,ForceMode.Impulse);
             timer = 0;
+            _jumpParticles.SendEvent("OnJump");
+        }
+
+        if (!IsJumping) {
+            _jumpParticles.SendEvent("OnStopJump");
         }
     }
 }
