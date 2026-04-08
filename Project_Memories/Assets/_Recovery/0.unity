@@ -406,6 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1165767442}
+  - component: {fileID: 1165767444}
   - component: {fileID: 1165767443}
   m_Layer: 0
   m_Name: Actions
@@ -443,6 +444,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovIment_Prototype
   MoveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   Speed: 5
+--- !u!114 &1165767444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165767441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f7e7e5e20b8cf4aaf2658c2080c7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Jump_prototype
+  JumpAction: {fileID: 0}
+  JumpForce: 4
+  QuantidadeDePulos: 0
+  DistanceRaycast: 0
+  Ground:
+    m_Bits: 0
 --- !u!1 &1209426377
 GameObject:
   m_ObjectHideFlags: 0
