@@ -56,7 +56,6 @@ namespace Memorias.Gameplay.Player
                     Debug.DrawRay(_playerTranform.position, _finalMoviment.normalized * _distanceRay, Color.red);
                 }
             }
-                    Debug.DrawRay(_playerTranform.position, _finalMoviment.normalized * _distanceRay, Color.red);
         }
         #endregion
     }
