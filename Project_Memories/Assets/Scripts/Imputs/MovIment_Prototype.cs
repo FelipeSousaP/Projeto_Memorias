@@ -3,84 +3,60 @@ using UnityEngine.InputSystem;
 
 namespace Memorias.Gameplay.Player
 {
-    [RequireComponent(typeof(CharacterController))]
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement: MonoBehaviour
     {
-        [Header("Input References")]
-        [SerializeField] private InputActionReference moveAction;
+        #region Etapa 1: Requisitos
+        [Header("Input Settings")]
+        [SerializeField] private InputActionReference _moveAction;
+        [Tooltip("Controla o a velocidade do seu movimento")]
+        [SerializeField] private float _speed;
+        [SerializeField] private Transform _playerTranform;
 
-        [Header("Movement Settings")]
-        [SerializeField] private float speed = 8f;
-        [SerializeField] private Transform cameraTransform;
-
-        [Header("Physics Settings")]
-        [SerializeField] private float gravity = -30f;
-
-        private CharacterController controller;
-        private Vector2 inputDirection;
-        private float verticalVelocity;
-
-        private void Awake()
-        {
-            controller = GetComponent<CharacterController>();
-
-            
-            if (cameraTransform == null && Camera.main != null)
-                cameraTransform = Camera.main.transform;
-        }
-
+        [Header("Detector of Wall")]
+        [SerializeField] private float _distanceRay;
+        [SerializeField] private LayerMask _layer;
+        
+        private Vector2 _value;
+        private Vector3 _finalMoviment;
+        #endregion 
+        #region Etapa 2: Input do jogador
         private void OnEnable()
         {
-            if (moveAction != null)
+            if (_moveAction != null) 
             {
-                moveAction.action.performed += OnMovePerformed;
-                moveAction.action.canceled += OnMoveCanceled;
+                _moveAction.action.performed += MovePerformed;
+                _moveAction.action.canceled += MoveCanceled;
             }
         }
-
         private void OnDisable()
         {
-            if (moveAction != null)
-            {
-                moveAction.action.performed -= OnMovePerformed;
-                moveAction.action.canceled -= OnMoveCanceled;
-            }
+            _moveAction.action.performed -= MovePerformed;
+            _moveAction.action.canceled -= MoveCanceled;
         }
-
-        private void OnMovePerformed(InputAction.CallbackContext context) => inputDirection = context.ReadValue<Vector2>();
-        private void OnMoveCanceled(InputAction.CallbackContext context) => inputDirection = Vector2.zero;
-
+        public void MovePerformed(InputAction.CallbackContext c) => _value = c.ReadValue<Vector2>();
+        public void MoveCanceled(InputAction.CallbackContext c) => _value = Vector2.zero;
+        #endregion
+        #region Etapa 3 Ações
         private void Update()
         {
-            ApplyGravity();
-            MovePlayer();
-        }
+            // 1. Define a intenção de movimento
+            _finalMoviment = new Vector3(_value.x, 0, _value.y);
 
-        private void ApplyGravity()
-        {
-            
-            if (controller.isGrounded && verticalVelocity < 0)
+            // condicional: so se move se tiver Input/ alteração no input
+            if (_finalMoviment != Vector3.zero)
             {
-                verticalVelocity = -2f;
-            }
-            else
-            {
-                verticalVelocity += gravity * Time.deltaTime;
+                //condicional: _finalmoviment a direção que o jogador de move é gerado o raio
+                if (!Physics.Raycast(_playerTranform.position, _finalMoviment.normalized, _distanceRay, _layer))
+                {
+                    _playerTranform.Translate(_finalMoviment * _speed * Time.deltaTime);
+                    Debug.DrawRay(_playerTranform.position, _finalMoviment.normalized * _distanceRay, Color.green);
+                }
+                else
+                {
+                    Debug.DrawRay(_playerTranform.position, _finalMoviment.normalized * _distanceRay, Color.red);
+                }
             }
         }
-
-        private void MovePlayer()
-        {
-            Vector3 forward = cameraTransform.forward;
-            Vector3 right = cameraTransform.right;
-            forward.y = 0;
-            right.y = 0;
-            forward.Normalize();
-            right.Normalize();
-            Vector3 movement = (forward * inputDirection.y) + (right * inputDirection.x);
-            Vector3 finalMotion = movement * speed;
-            finalMotion.y = verticalVelocity;
-            controller.Move(finalMotion * Time.deltaTime);
-        }
+        #endregion
     }
 }
