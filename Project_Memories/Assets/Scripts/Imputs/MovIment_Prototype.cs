@@ -1,33 +1,86 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MovIment_Prototype : MonoBehaviour
+namespace Memorias.Gameplay.Player
 {
-    [SerializeField] InputActionReference MoveAction;
-    [SerializeField] float Speed;
-    Vector2 valor;
+    [RequireComponent(typeof(CharacterController))]
+    public class PlayerMovement : MonoBehaviour
+    {
+        [Header("Input References")]
+        [SerializeField] private InputActionReference moveAction;
 
-    private void OnEnable()
-    {
-        if (MoveAction != null) // para não chamar um evento que não existe
+        [Header("Movement Settings")]
+        [SerializeField] private float speed = 8f;
+        [SerializeField] private Transform cameraTransform;
+
+        [Header("Physics Settings")]
+        [SerializeField] private float gravity = -30f;
+
+        private CharacterController controller;
+        private Vector2 inputDirection;
+        private float verticalVelocity;
+
+        private void Awake()
         {
-            MoveAction.action.performed += Move;
-            MoveAction.action.canceled += Move;
+            controller = GetComponent<CharacterController>();
+
+            
+            if (cameraTransform == null && Camera.main != null)
+                cameraTransform = Camera.main.transform;
         }
-    }
-    private void OnDisable()
-    {
-        MoveAction.action.performed -= Move;
-        //Sem o canceled é infinito
-        MoveAction.action.canceled -= Move;
-    }
-    private void Move(InputAction.CallbackContext callbackContext)
-    {
-        valor = callbackContext.ReadValue<Vector2>();
-    }
-    void Update()
-    {
-        Vector3 dir = new Vector3(valor.x,0,valor.y);
-        transform.Translate(dir * Speed * Time.deltaTime);
+
+        private void OnEnable()
+        {
+            if (moveAction != null)
+            {
+                moveAction.action.performed += OnMovePerformed;
+                moveAction.action.canceled += OnMoveCanceled;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (moveAction != null)
+            {
+                moveAction.action.performed -= OnMovePerformed;
+                moveAction.action.canceled -= OnMoveCanceled;
+            }
+        }
+
+        private void OnMovePerformed(InputAction.CallbackContext context) => inputDirection = context.ReadValue<Vector2>();
+        private void OnMoveCanceled(InputAction.CallbackContext context) => inputDirection = Vector2.zero;
+
+        private void Update()
+        {
+            ApplyGravity();
+            MovePlayer();
+        }
+
+        private void ApplyGravity()
+        {
+            
+            if (controller.isGrounded && verticalVelocity < 0)
+            {
+                verticalVelocity = -2f;
+            }
+            else
+            {
+                verticalVelocity += gravity * Time.deltaTime;
+            }
+        }
+
+        private void MovePlayer()
+        {
+            Vector3 forward = cameraTransform.forward;
+            Vector3 right = cameraTransform.right;
+            forward.y = 0;
+            right.y = 0;
+            forward.Normalize();
+            right.Normalize();
+            Vector3 movement = (forward * inputDirection.y) + (right * inputDirection.x);
+            Vector3 finalMotion = movement * speed;
+            finalMotion.y = verticalVelocity;
+            controller.Move(finalMotion * Time.deltaTime);
+        }
     }
 }
