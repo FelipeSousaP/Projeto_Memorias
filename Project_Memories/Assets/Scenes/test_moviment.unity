@@ -653,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 627131225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 1.85, z: -6.39}
+  m_LocalPosition: {x: 0.49, y: 1.28, z: -6.39}
   m_LocalScale: {x: 1, y: 1.7942, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -684,9 +684,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &627131234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -754,12 +754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Memorias.Gameplay.Player.PlayerMovement
   _moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _speed: 5
-  _playerTranform: {fileID: 627131232}
-  _distanceRay: 2
-  _layer:
-    serializedVersion: 2
-    m_Bits: 128
+  _speedMove: 5
+  _rigidBody: {fileID: 627131233}
 --- !u!114 &681652248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,10 +769,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Memorias.Gameplay.Player.PlayerJump
   _jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _jumpForce: 5
-  _player: {fileID: 627131232}
+  _countJump: 2
   _isJumping: 0
-  _distanceRay: 1
+  _jumpForce: 2
+  _rb: {fileID: 627131233}
+  _player: {fileID: 627131232}
+  _distanceRay: 0.1
   _layerMask:
     serializedVersion: 2
     m_Bits: 256

@@ -6,18 +6,22 @@ namespace Memorias.Gameplay.Player
     public class PlayerJump: MonoBehaviour
     {
         #region Etapa 1: Requisitos
-        [Header("Jump Settings")]
+        [Header("Input Settings")]
         [SerializeField] private InputActionReference _jumpAction;
+        [SerializeField] private int _Quantospulospodedar = 0;
+        [SerializeField] private int _Quantospulosdeu;
+
+        [Header("Physics Settings")]
         [SerializeField] private float _jumpForce;
-        [SerializeField] private Transform _player;
-        [SerializeField] private bool _isJumping;
+        [SerializeField] private Rigidbody _rb;
 
         [Header("RayCast Settings")]
+        [SerializeField] private Transform _player;
         [SerializeField] private float _distanceRay;
         [SerializeField] private LayerMask _layerMask;
+
         #endregion
 
-        float _velocity;
         #region Etapa 2: input por evento
         private void OnEnable()
         {
@@ -34,29 +38,38 @@ namespace Memorias.Gameplay.Player
         }
         public void JumpPerfomed(InputAction.CallbackContext callbackContext)
         {
-            _isJumping = callbackContext.ReadValueAsButton();
-            _velocity = _jumpForce;
-        }
-        #endregion
-
-        //caso esteja no sol, ele pode pular
-        private void Update()
-        {
-            if (IsGrounded())
+            if (callbackContext.performed && callbackContext.ReadValueAsButton())
             {
-                if (_isJumping) 
+                if (IsGrounded())
                 {
-                    _player.transform.position = new Vector3(0,_velocity,0) * Time.deltaTime;
-                    Debug.Log("Ele pulo EBBAAAA");
+                    _Quantospulosdeu = 0;
+                    Debug.Log("No chão: Contador resetado.");
+                }
+
+                if (_Quantospulosdeu < _Quantospulospodedar)
+                {
+                    _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z); //Para resetar a velocidade causada pelos inputs do move + o Pulo
+                    _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+                    _Quantospulosdeu++;
+                    Debug.Log($"Pulou! Total de pulos: {_Quantospulosdeu}");
                 }
             }
         }
+        #endregion
 
         private bool IsGrounded()
         {
-            Vector3 end = Vector3.down * _distanceRay;
-            Debug.DrawLine(_player.transform.position, end,Color.red);
-            return Physics.Raycast(_player.transform.position, -transform.up, _distanceRay, _layerMask);
+            return Physics.Raycast(_player.position, Vector3.down, _distanceRay, _layerMask);
         }
+
+        #if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            if (_player == null) return;
+            Gizmos.color = IsGrounded() ? Color.green : Color.red;
+            Vector3 direction = Vector3.down * _distanceRay;
+            Gizmos.DrawRay(_player.position, direction);
+        }
+        #endif
     }
 }
