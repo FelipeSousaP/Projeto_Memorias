@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project_Memories/Assets/Scenes/Testes/UI.unity.meta
 guid: 36bfc1dd9986b6447a845a72fa0f2141
+========
+guid: fb99665e7c20cd642b5bbc1b3b237378
+folderAsset: yes
+>>>>>>>> refactor/player-moviment:Project_Memories/Assets/VFX.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

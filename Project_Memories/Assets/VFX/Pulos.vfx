@@ -24,12 +24,17 @@ MonoBehaviour:
   m_Label: Spawn System
   m_Data: {fileID: 8926484042661614529}
   m_InputFlowSlot:
+<<<<<<< HEAD
   - link:
     - context: {fileID: 8926484042661614595}
       slotIndex: 0
   - link:
     - context: {fileID: 8926484042661614597}
       slotIndex: 0
+=======
+  - link: []
+  - link: []
+>>>>>>> refactor/player-moviment
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 114946465509916290}
@@ -80,7 +85,10 @@ MonoBehaviour:
   m_SubOutputs:
   - {fileID: 8926484042661614528}
   - {fileID: 8926484042661614538}
+<<<<<<< HEAD
   useBaseColorMap: 3
+=======
+>>>>>>> refactor/player-moviment
   colorMapping: 0
   uvMode: 0
   flipbookLayout: 0
@@ -99,7 +107,11 @@ MonoBehaviour:
   enableRayTracing: 0
   decimationFactor: 1
   raytracedScaleMode: 0
+<<<<<<< HEAD
   needsOwnSort: 1
+=======
+  needsOwnSort: 0
+>>>>>>> refactor/player-moviment
   needsOwnAabbBuffer: 0
   shaderGraph: {fileID: 0}
   materialSettings:
@@ -194,10 +206,17 @@ MonoBehaviour:
   - title: Minimal
     position:
       serializedVersion: 2
+<<<<<<< HEAD
       x: 482
       y: -653
       width: 885
       height: 1674
+=======
+      x: 681
+      y: -493
+      width: 475
+      height: 1067
+>>>>>>> refactor/player-moviment
     contents:
     - model: {fileID: 114023846229194376}
       id: 0
@@ -211,20 +230,30 @@ MonoBehaviour:
     - model: {fileID: 114063133802684794}
       id: 0
       isStickyNote: 0
+<<<<<<< HEAD
     - model: {fileID: 8926484042661614597}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614595}
       id: 0
       isStickyNote: 0
+=======
+>>>>>>> refactor/player-moviment
   stickyNoteInfos: []
   categories: []
   uiBounds:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 482
     y: -653
     width: 885
     height: 1674
+=======
+    x: 483
+    y: -493
+    width: 673
+    height: 1508
+>>>>>>> refactor/player-moviment
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,8 +275,11 @@ MonoBehaviour:
   - {fileID: 114063133802684794}
   - {fileID: 8926484042661614543}
   - {fileID: 8926484042661614545}
+<<<<<<< HEAD
   - {fileID: 8926484042661614595}
   - {fileID: 8926484042661614597}
+=======
+>>>>>>> refactor/player-moviment
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -287,7 +319,11 @@ MonoBehaviour:
     enumValues: []
     descendantCount: 0
   m_ImportDependencies: []
+<<<<<<< HEAD
   m_GraphVersion: 19
+=======
+  m_GraphVersion: 18
+>>>>>>> refactor/player-moviment
   m_ResourceVersion: 1
   m_SubgraphDependencies: []
   m_CategoryPath: 
@@ -673,6 +709,13 @@ VisualEffectResource:
     m_RendererSettings:
       motionVectorGenerationMode: 0
       shadowCastingMode: 0
+<<<<<<< HEAD
+=======
+      rayTracingMode: 0
+      receiveShadows: 0
+      reflectionProbeUsage: 0
+      lightProbeUsage: 0
+>>>>>>> refactor/player-moviment
     m_CullingFlags: 3
     m_UpdateMode: 0
     m_PreWarmDeltaTime: 0.05
@@ -2181,6 +2224,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
   m_LinkedSlots: []
+<<<<<<< HEAD
 --- !u!114 &8926484042661614595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,3 +2325,5 @@ MonoBehaviour:
   title: 
   m_Owners:
   - {fileID: 8926484042661614597}
+=======
+>>>>>>> refactor/player-moviment

@@ -1,15 +1,25 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a57f8a496cf847342bc767296948dca0
 VisualEffectImporter:
   externalObjects: {}
   serializedVersion: 2
+=======
+guid: 8e349d665595d0046b7691374bfa0225
+VisualEffectImporter:
+  externalObjects: {}
+  serializedVersion: 1
+>>>>>>> refactor/player-moviment
   template:
     name: 
     category: 
     description: 
     icon: {instanceID: 0}
     thumbnail: {instanceID: 0}
+<<<<<<< HEAD
   useAsTemplate: 0
+=======
+>>>>>>> refactor/player-moviment
   userData: 
   assetBundleName: 
   assetBundleVariant: 

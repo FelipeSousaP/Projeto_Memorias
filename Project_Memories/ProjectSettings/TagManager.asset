@@ -3,8 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags:
   - Photos
+=======
+  tags: []
+>>>>>>> refactor/player-moviment
   layers:
   - Default
   - TransparentFX
@@ -13,8 +17,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - Wall
+  - Floor
   - 
   - 
   - 
