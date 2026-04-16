@@ -8,10 +8,16 @@ namespace Memorias.Gameplay.Player
         #region Etapa 1: Requisitos
         [Header("Input Settings")]
         [SerializeField] private InputActionReference _moveAction;
+        [SerializeField] private Transform _player;
 
         [Header("Physics Settings")]
         [SerializeField] private float _speedMove;
         [SerializeField] private Rigidbody _rigidBody;
+
+        [Header("Animator Settings")]
+        [SerializeField] private Animator _walkAnimation;
+        [SerializeField] private string _animationName;
+
         private Vector2 _value;
         #endregion 
 
@@ -39,8 +45,16 @@ namespace Memorias.Gameplay.Player
         #region Etapa 3 Ações
         private void Update()
         {
+            Transform newRotate = _player;
             Vector3 valueNormalized = new Vector3(_value.x, 0, _value.y).normalized;
-            _rigidBody.linearVelocity = new Vector3(valueNormalized.x * _speedMove, _rigidBody.linearVelocity.y, valueNormalized.z * _speedMove);
+            //transform.rotation = Quaternion.LookRotation(valueNormalized);// rotaciona pra direção que o value indica
+            if (valueNormalized != null)
+            {
+                newRotate.rotation = Quaternion.LookRotation(valueNormalized);
+                AnimatorManager.Instance.CurrentAnimation(_walkAnimation, _animationName);
+                _rigidBody.linearVelocity = new Vector3(valueNormalized.x * _speedMove, _rigidBody.linearVelocity.y, valueNormalized.z * _speedMove);
+            }
+            _player.rotation = newRotate.rotation;
         }
         #endregion
     }
