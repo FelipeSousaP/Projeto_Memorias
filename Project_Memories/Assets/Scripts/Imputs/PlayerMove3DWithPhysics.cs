@@ -19,6 +19,7 @@ namespace Memorias.Gameplay.Player
         [SerializeField] private string _animationName;
 
         private Vector2 _value;
+        private bool _isRunning;
         #endregion 
 
         #region Etapa 2: Input do jogador
@@ -26,35 +27,38 @@ namespace Memorias.Gameplay.Player
         {
             if (_moveAction != null) 
             {
-                _moveAction.action.performed += MovePerformed;
+                _moveAction.action.performed += MoveCalculated;
                 _moveAction.action.canceled += MoveCanceled;
             }
         }
         private void OnDisable()
         {
-            _moveAction.action.performed -= MovePerformed;
+            _moveAction.action.performed -= MoveCalculated;
             _moveAction.action.canceled -= MoveCanceled;
         }
-        public void MovePerformed(InputAction.CallbackContext c)
+        public void MoveCalculated(InputAction.CallbackContext c)
         {
             _value = c.ReadValue<Vector2>();
+            _isRunning = true;
+            _walkAnimation.SetBool(_animationName,_isRunning);
         }
-        public void MoveCanceled(InputAction.CallbackContext c) => _value = Vector2.zero;
+        public void MoveCanceled(InputAction.CallbackContext c) {
+            _value = Vector2.zero; 
+            _isRunning = false;
+            _walkAnimation.SetBool(_animationName,_isRunning);
+        }
         #endregion
 
         #region Etapa 3 Ações
         private void Update()
         {
-            Transform newRotate = _player;
             Vector3 valueNormalized = new Vector3(_value.x, 0, _value.y).normalized;
             //transform.rotation = Quaternion.LookRotation(valueNormalized);// rotaciona pra direção que o value indica
-            if (valueNormalized != null)
+            if (_isRunning) 
             {
-                newRotate.rotation = Quaternion.LookRotation(valueNormalized);
-                AnimatorManager.Instance.CurrentAnimation(_walkAnimation, _animationName);
+                _player.rotation = Quaternion.LookRotation(valueNormalized); // Precisa ser trocado para uma animação da personagem rotacionando
                 _rigidBody.linearVelocity = new Vector3(valueNormalized.x * _speedMove, _rigidBody.linearVelocity.y, valueNormalized.z * _speedMove);
             }
-            _player.rotation = newRotate.rotation;
         }
         #endregion
     }
