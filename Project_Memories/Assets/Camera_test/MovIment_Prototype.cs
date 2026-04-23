@@ -5,6 +5,7 @@ public class MovIment_Prototype : MonoBehaviour
 {
     [SerializeField] InputActionReference MoveAction;
     [SerializeField] float Speed;
+    [SerializeField] Rigidbody rb;
     Vector2 valor;
     Transform CAMtransform;
     private void Start()
@@ -40,6 +41,7 @@ public class MovIment_Prototype : MonoBehaviour
         FrenteEtras.Normalize(); // não é possivel misturar void com float
         #endregion
         Vector3 Direção = (FrenteEtras * valor.y) + (Lado * valor.x);
-        transform.Translate(Direção * Speed * Time.deltaTime,Space.World);//Em relação ao mundo
+
+        rb.linearVelocity = new Vector3(Direção.x * Speed, rb.linearVelocity.y, Direção.z * Speed);
     }
 }

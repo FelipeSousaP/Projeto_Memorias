@@ -1,36 +1,41 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Jump_prototype : MonoBehaviour
 {
     [SerializeField] InputActionReference JumpAction;
-    [SerializeField] float JumpForce;
+    [SerializeField] Rigidbody rb;
+    [SerializeField] float Speed;
+    [SerializeField] float TempoPraPular;
+    [SerializeField] float timer;
+    [SerializeField] bool IsJumping;
 
-    Rigidbody body;
-    private void Start() { body = GetComponent<Rigidbody>(); }
-
-    #region Ativação dos imputs por Eventos
     private void OnEnable()
     {
         if (JumpAction != null)
         {
             JumpAction.action.performed += Jump;
             JumpAction.action.canceled += Jump;
-        }    
+        }
     }
     private void OnDisable()
     {
         JumpAction.action.performed -= Jump;
         JumpAction.action.canceled -= Jump;
     }
-    #endregion
 
-    public void Jump(InputAction.CallbackContext callback)
+    public void Jump(InputAction.CallbackContext callbackContext)
     {
-        body.AddForce(Vector3.up * JumpForce,ForceMode.Impulse);
-        Debug.Log("ativado");
+        IsJumping = callbackContext.action.IsPressed();
     }
-
-    // detectar o chão
-    //pular
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (IsJumping && timer >= TempoPraPular) //Não da pra usar == pois o numero é quebrado
+        {
+            rb.AddForce(Vector3.up * Speed,ForceMode.Impulse);
+            timer = 0;
+        }
+    }
 }
