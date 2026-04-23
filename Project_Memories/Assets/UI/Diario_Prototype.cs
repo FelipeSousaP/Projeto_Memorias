@@ -9,6 +9,7 @@ public class Diario_Prototype : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         DiarioAberto = false;
     }
 
@@ -16,10 +17,10 @@ public class Diario_Prototype : MonoBehaviour
     {
         if (UiAction.action.WasPressedThisFrame())
         {
-            EstadoDoDiario();
+            DiaryStatus();
         }
     }
-    void EstadoDoDiario()
+    void DiaryStatus()
     {
         DiarioAberto = !DiarioAberto;
         if (!DiarioAberto)
@@ -35,9 +36,11 @@ public class Diario_Prototype : MonoBehaviour
     void Esconder(CanvasGroup uiDiario)
     {
         UIManeger.Instance.Hide(uiDiario);
+        Cursor.lockState = CursorLockMode.Locked;
     }
     void Mostrar(CanvasGroup uiDiario)
     {
         UIManeger.Instance.Show(uiDiario);
+        Cursor.lockState = CursorLockMode.None;
     }
 }
