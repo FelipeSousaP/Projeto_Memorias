@@ -1,3 +1,16 @@
 {
-	"name": "Memorias.System"
+    "name": "Memorias.System",
+    "rootNamespace": "",
+    "references": [
+        "GUID:de53e7d93e8a01447ae3984526d7efcb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
