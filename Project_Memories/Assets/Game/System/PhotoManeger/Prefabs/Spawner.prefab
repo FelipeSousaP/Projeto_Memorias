@@ -44,7 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d2da6a299334a4db0617b38639dd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Memorias.System::Memorias.System.PhotoManeger.PhotoSpawner
-  _phase1:
+  _photoAwaker: {fileID: 0}
+  _phaseStart:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _phase2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _phase3:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
