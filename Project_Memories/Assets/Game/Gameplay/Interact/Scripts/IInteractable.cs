@@ -1,4 +1,3 @@
-using UnityEngine;
 namespace Memorias.Gameplay.Interact
 {
     public interface IInteractable

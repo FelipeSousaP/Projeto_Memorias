@@ -10,9 +10,11 @@ namespace Memorias.Gameplay.Interact
         [SerializeField] private InputActionReference _interactAction;
         [SerializeField] private Transform _playerPosition;
         [SerializeField] private float _distanceRaycast;
+        public Transform _grabPosition;
 
         private bool _interacting;
-        private IInteractable _currentInterface;
+        private IInteractable _interactable;
+        private IInteractable _HeldObject;
         #endregion
 
         #region Etapa 2: Input do evento
@@ -32,22 +34,54 @@ namespace Memorias.Gameplay.Interact
         private void OnInteractPerformed(InputAction.CallbackContext callback)
         {
             _interacting = !_interacting;
+            
+            if (!_interacting)
+            {
+                _interactable.Deselected();
+                _HeldObject = null;
+            }
         }
         #endregion
 
         private void Update()
         {
-            RaycastHit hit;
-            if (Physics.Raycast(_playerPosition.position, _playerPosition.forward, out hit, _distanceRaycast) && hit.collider.TryGetComponent(out IInteractable I))
+            if(_interacting && _HeldObject != null)
             {
-                Debug.Log("Collidiu com o " + hit.collider.name);
-                if(_currentInterface != I)
+                _interactable.OnInteract();
+            }
+            RaycastHit hit;
+            if (Physics.Raycast(_playerPosition.position, _playerPosition.forward, out hit, _distanceRaycast))
+            {
+                IInteractable I = hit.collider.GetComponent<IInteractable>();
+                if (I != null)
                 {
-                    _currentInterface = I;
-                    _currentInterface.Selected();
+                    //Nao tem nada no _Interactable
+                    if(_interactable != I)
+                    {
+                        _interactable = I;
+                        _interactable.Selected();
+                    }
+                    if (_interacting)
+                    {
+                        _HeldObject = _interactable;
+                    }
                 }
-                if (_interacting){I.OnInteract();}
-                else { I.Deselected(); }
+                else
+                {
+                    CheckInterface();
+                }
+            }
+            else
+            {
+                CheckInterface();
+            }
+        }
+        private void CheckInterface()
+        {
+            if(_interactable != null)
+            {
+               _interactable.Deselected();
+                _interactable = null;
             }
         }
 

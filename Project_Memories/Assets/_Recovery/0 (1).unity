@@ -119,37 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &142171342
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 142171343}
-  m_Layer: 0
-  m_Name: grab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &142171343
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142171342}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.67}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1149538526}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &227901400
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +543,6 @@ MonoBehaviour:
   _interactAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _playerPosition: {fileID: 1149538526}
   _distanceRaycast: 0.8
-  _grabPosition: {fileID: 142171343}
 --- !u!114 &1043561648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +700,6 @@ Transform:
   m_Children:
   - {fileID: 227901401}
   - {fileID: 1043561646}
-  - {fileID: 142171343}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990184323
@@ -768,11 +735,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cab3e96663c634fad88d2d8404e2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Memorias.Gameplay::Memorias.Gameplay.Interact.ObjectGrabbable
-  _interactColor: {r: 0.18259154, g: 0.8415094, b: 0.27650803, a: 0}
-  _SelectedColor: {r: 0.50303847, g: 0.5471698, b: 0.052652176, a: 0}
+  _interactColor: {r: 0, g: 0, b: 0, a: 0}
+  _SelectedColor: {r: 0, g: 0, b: 0, a: 0}
   _renderer: {fileID: 1990184327}
-  _lerpSpeed: 10
-  _interact: {fileID: 1043561647}
 --- !u!54 &1990184325
 Rigidbody:
   m_ObjectHideFlags: 0
