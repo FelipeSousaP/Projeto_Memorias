@@ -2,7 +2,9 @@
     "name": "Memorias.Gameplay",
     "rootNamespace": "",
     "references": [
-        "Unity.InputSystem"
+        "Unity.InputSystem",
+        "Memorias.System",
+        "Memorias.Framework"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
