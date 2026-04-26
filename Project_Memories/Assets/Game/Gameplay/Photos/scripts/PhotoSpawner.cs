@@ -1,19 +1,21 @@
 using UnityEngine;
-
-public class PhotoSpawner : MonoBehaviour
+namespace Memorias.Gameplay.Photo
 {
-    [Header("Settings")]
-    [SerializeField] GameObject PhotoPrefab;
-    [SerializeField] GameObject PhotoConteiner;
-    [SerializeField] Transform[] PhotoPosition;
-    [SerializeField] int QuantidadeDEFotos;
-
-    private void Start()
+    public class PhotoSpawner : MonoBehaviour
     {
-        for (int i = 0; i < QuantidadeDEFotos; i++) 
+        [Header("Settings")]
+        [SerializeField] GameObject PhotoPrefab;
+        [SerializeField] GameObject PhotoConteiner;
+        [SerializeField] Transform[] PhotoPosition;
+        [SerializeField] int QuantidadeDEFotos;
+
+        private void Start()
         {
-            GameObject obj = Instantiate(PhotoPrefab,PhotoPosition[i].position,Quaternion.identity,PhotoConteiner.transform);
-            Debug.Log("Criado");
+            for (int i = 0; i < QuantidadeDEFotos; i++) 
+            {
+                GameObject obj = Instantiate(PhotoPrefab,PhotoPosition[i].position,Quaternion.identity,PhotoConteiner.transform);
+                Debug.Log("Criado");
+            }
         }
     }
 }
