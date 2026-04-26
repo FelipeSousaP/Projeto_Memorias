@@ -1,17 +1,21 @@
 using UnityEngine;
-
-public class CollectAction : MonoBehaviour
+using Memorias.Gameplay.Photo;
+namespace Memorias.Gameplay.Player
 {
-    //Codigo destinado para a area de coleta de fotos
-    private void OnTriggerEnter(Collider other)
+    public class CollectAction : MonoBehaviour
     {
-        if (other.TryGetComponent<Photos>(out Photos component)) //Substituir por GetComponent<Photo>() 
+        //Codigo destinado para a area de coleta de fotos
+        private void OnTriggerEnter(Collider other)
         {
-            Debug.Log($"Coletado: {component.name}");
-            //adicionar em uma lista
-            PhotoListManeger.Instance.SetPhotos(other.gameObject);
-            other.gameObject.SetActive(false);
-            Debug.Log($"Fotos: {PhotoListManeger.Instance.GetPhotoNumber()} ");
+            if (other.TryGetComponent<Photos>(out Photos component)) //Substituir por GetComponent<Photo>() 
+            {
+                Debug.Log($"Coletado: {component.name}");
+                //adicionar em uma lista
+                PhotoListManeger.Instance.SetPhotos(other.gameObject);
+                other.gameObject.SetActive(false);
+                Debug.Log($"Fotos: {PhotoListManeger.Instance.GetPhotoNumber()} ");
+            }
         }
     }
+
 }
