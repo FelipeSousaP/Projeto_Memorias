@@ -1,7 +1,7 @@
 using System.Net.Http.Headers;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class Camera_prototype : MonoBehaviour
 {
     private void Update()
     {
