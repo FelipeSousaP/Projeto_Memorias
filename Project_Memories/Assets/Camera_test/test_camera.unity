@@ -1886,8 +1886,11 @@ MonoBehaviour:
   _uiAction: {fileID: 7407973627639030493, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _startScreen: {fileID: 1973542092}
   _uiMenuScreen: {fileID: 133112810}
+<<<<<<< HEAD
   _menuOpened: 0
   _gameplayStarted: 0
+=======
+>>>>>>> feature/camera
 --- !u!1 &1973542091
 GameObject:
   m_ObjectHideFlags: 0
