@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<<< HEAD:Project_Memories/Assets/Camera_test.meta
-guid: 0ddcb37dfc65e39489121d3fa3426686
-========
-guid: 8f7c6a5f732e93b4594af969384c0b16
->>>>>>>> feature/camera:Project_Memories/Assets/Camera_test/UI.meta
-=======
-guid: 3e9c26c8eb913034d9183cf4e68cb10e
->>>>>>> feature/camera
+guid: f0fa2ff2c7ca63d4c8757119149e70e1
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
