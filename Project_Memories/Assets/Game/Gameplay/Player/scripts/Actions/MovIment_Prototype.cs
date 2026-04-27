@@ -6,7 +6,7 @@ namespace Memorias.Gameplay.Player
     public class MovIment_Prototype : MonoBehaviour
     {
         [SerializeField] InputActionReference MoveAction;
-        [SerializeField] float Speed;
+        public float Speed;
         [SerializeField] Rigidbody rb;
         Vector2 valor;
         Transform CAMtransform;
