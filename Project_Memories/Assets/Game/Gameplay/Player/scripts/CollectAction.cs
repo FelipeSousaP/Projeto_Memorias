@@ -1,20 +1,21 @@
 using UnityEngine;
-using Memorias.Framework.ObjectPool;
-using Memorias.System.PhotoManeger;
+using Memorias.Gameplay.Photo;
 namespace Memorias.Gameplay.Player
 {
     public class CollectAction : MonoBehaviour
     {
-        [SerializeField] private PhotoSpawner _photoSpawner;
+        //Codigo destinado para a area de coleta de fotos
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent<Photos>(out Photos component)) //Substituir por GetComponent<Photo>() 
             {
-                Debug.Log($"Coletado: {component._name}");
-                ObjectPoolController.Instance.objectPool.SetPool(other.gameObject);
+                Debug.Log($"Coletado: {component.name}");
+                //adicionar em uma lista
+                PhotoListManeger.Instance.SetPhotos(other.gameObject);
                 other.gameObject.SetActive(false);
-                _photoSpawner.PlayerIsTouched();
+                Debug.Log($"Fotos: {PhotoListManeger.Instance.GetPhotoNumber()} ");
             }
         }
     }
+
 }
