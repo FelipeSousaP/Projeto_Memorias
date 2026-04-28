@@ -7,6 +7,7 @@ namespace Memorias.Gameplay.Player
     {
         [SerializeField] InputActionReference MoveAction;
         [SerializeField] Rigidbody rb;
+        [SerializeField] private Transform _player;
         public float Speed;
         [HideInInspector] public Vector3 _dir;
         
@@ -48,6 +49,7 @@ namespace Memorias.Gameplay.Player
             _dir = Direção;
             if (Direção.magnitude > 0.1f)
             {
+                _player.rotation = Quaternion.LookRotation(Direção);
                 rb.linearVelocity = new Vector3(Direção.x * Speed, rb.linearVelocity.y, Direção.z * Speed);
             }
             else
