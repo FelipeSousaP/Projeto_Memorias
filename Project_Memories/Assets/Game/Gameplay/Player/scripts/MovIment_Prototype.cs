@@ -44,7 +44,14 @@ namespace Memorias.Gameplay.Player
             #endregion
             Vector3 Direção = (FrenteEtras * valor.y) + (Lado * valor.x);
 
-            rb.linearVelocity = new Vector3(Direção.x * Speed, rb.linearVelocity.y, Direção.z * Speed);
+            if (Direção.magnitude > 0.1f)
+            {
+                rb.linearVelocity = new Vector3(Direção.x * Speed, rb.linearVelocity.y, Direção.z * Speed);
+            }
+            else
+            {
+                rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+            }
         }
     }
 

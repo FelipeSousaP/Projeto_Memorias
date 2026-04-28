@@ -12,19 +12,15 @@ namespace Memorias.Gameplay.Interact
         [SerializeField] private Transform _playerPosition;
         [SerializeField] private float _distanceRaycast;
         public Transform _grabPosition;
-        [SerializeField] private Vector3 _offSetGrab = new Vector3(0,0.3f,1.2f);
+        [SerializeField] private Vector3 _offSetGrab = new Vector3(0,0.3f,1);
         
         private bool _interacting;
-        private float _oldSpeed = 0;
         private IInteractable _interactable;
         private IInteractable _HeldObject;
-        private MovIment_Prototype _playerMove;
         #endregion
 
         private void Start()
         {
-            _playerMove = GetComponent<MovIment_Prototype>();
-            _oldSpeed = _playerMove.Speed;
             _grabPosition.position += _offSetGrab;
         }
         #region Etapa 2: Input do evento
@@ -43,12 +39,11 @@ namespace Memorias.Gameplay.Interact
         }
         private void OnInteractPerformed(InputAction.CallbackContext callback)
         {
+            if (_interactable == null) return;
             _interacting = !_interacting;
-            
             if (!_interacting)
             {
                 // fazer a movimentação do player voltar a original
-                _playerMove.Speed = _oldSpeed;
                 _interactable.Deselected();
                 _HeldObject = null;
             }

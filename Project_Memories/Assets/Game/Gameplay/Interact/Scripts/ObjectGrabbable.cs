@@ -1,4 +1,3 @@
-using Memorias.Gameplay.Player;
 using UnityEngine;
 namespace Memorias.Gameplay.Interact
 {
@@ -18,9 +17,11 @@ namespace Memorias.Gameplay.Interact
         [SerializeField] private LayerMask _layerMask;
 
         private Color _oldColor;
+        private Rigidbody _rb;
         private void Start()
         {
             _oldColor = _renderer.material.color;
+            _rb = GetComponent<Rigidbody>();
         }
         void Update()
         {
@@ -38,14 +39,14 @@ namespace Memorias.Gameplay.Interact
         public void OnInteract()
         {
             _renderer.material.color = _interactColor;
-            //_rb.isKinematic = false;
+            _rb.isKinematic = false;
             transform.position = _interact._grabPosition.position;
             transform.rotation = _interact._grabPosition.rotation;
         }
         public void Selected()
         {
             _renderer.material.color = _SelectedColor;
-            //_rb.isKinematic = true;
+            _rb.isKinematic = true;
         }
     }
 }
