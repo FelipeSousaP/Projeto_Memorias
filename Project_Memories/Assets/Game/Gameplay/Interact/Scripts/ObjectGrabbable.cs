@@ -8,25 +8,19 @@ namespace Memorias.Gameplay.Interact
         [SerializeField] private Color _interactColor;
         [SerializeField] private Color _SelectedColor;
         [SerializeField] private Renderer _renderer;
-        [SerializeField] private float _lerpSpeed;
 
         [Header("Player Settings")]
         [Tooltip("Para termos acesso a posição do grab")]
         public PlayerInteract _interact;
-        [Tooltip("Para termos acesso ao Speed do jogador")]
-        public MovIment_Prototype _playermove;
-        [SerializeField] private float _reudecedSpeed;
-
+      
         [Header("Floor Detector Setiings")]
         [SerializeField] private float _distanceRayCast;
         [SerializeField] private LayerMask _layerMask;
 
         private Color _oldColor;
-        private Rigidbody _rb;
         private void Start()
         {
             _oldColor = _renderer.material.color;
-            _rb = GetComponent<Rigidbody>();
         }
         void Update()
         {
@@ -44,13 +38,14 @@ namespace Memorias.Gameplay.Interact
         public void OnInteract()
         {
             _renderer.material.color = _interactColor;
-            _playermove.Speed = _reudecedSpeed;
-            Vector3 target = _interact._grabPosition.position;
-            _rb.MovePosition(Vector3.Lerp(transform.position,target,Time.deltaTime * _lerpSpeed));
+            //_rb.isKinematic = false;
+            transform.position = _interact._grabPosition.position;
+            transform.rotation = _interact._grabPosition.rotation;
         }
         public void Selected()
         {
             _renderer.material.color = _SelectedColor;
+            //_rb.isKinematic = true;
         }
     }
 }
