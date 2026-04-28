@@ -6,8 +6,10 @@ namespace Memorias.Gameplay.Player
     public class MovIment_Prototype : MonoBehaviour
     {
         [SerializeField] InputActionReference MoveAction;
-        public float Speed;
         [SerializeField] Rigidbody rb;
+        public float Speed;
+        [HideInInspector] public Vector3 _dir;
+        
         Vector2 valor;
         Transform CAMtransform;
         private void Start()
@@ -43,7 +45,7 @@ namespace Memorias.Gameplay.Player
             FrenteEtras.Normalize(); // não é possivel misturar void com float
             #endregion
             Vector3 Direção = (FrenteEtras * valor.y) + (Lado * valor.x);
-
+            _dir = Direção;
             if (Direção.magnitude > 0.1f)
             {
                 rb.linearVelocity = new Vector3(Direção.x * Speed, rb.linearVelocity.y, Direção.z * Speed);
