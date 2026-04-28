@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerMenu : MonoBehaviour
+public class Diario_Prototype : MonoBehaviour
 {
     /// <summary>
     /// "WasPressedThisFrame" = evita que o evento seja chaamdo um trilhão de vezes em um clique

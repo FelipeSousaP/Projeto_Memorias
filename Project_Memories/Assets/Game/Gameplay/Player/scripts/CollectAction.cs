@@ -1,5 +1,5 @@
-using Memorias.Framework.ObjectPool;
 using UnityEngine;
+using Memorias.Gameplay.Photo;
 namespace Memorias.Gameplay.Player
 {
     public class CollectAction : MonoBehaviour
@@ -11,8 +11,9 @@ namespace Memorias.Gameplay.Player
             {
                 Debug.Log($"Coletado: {component.name}");
                 //adicionar em uma lista
-                ObjectPoolController.Instance.objectPool.SetPool(other.gameObject);
+                PhotoListManeger.Instance.SetPhotos(other.gameObject);
                 other.gameObject.SetActive(false);
+                Debug.Log($"Fotos: {PhotoListManeger.Instance.GetPhotoNumber()} ");
             }
         }
     }
