@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 namespace Memorias.Gameplay.Interact
 {
     public class ObjectGrabbable : MonoBehaviour, IInteractable
@@ -11,6 +12,7 @@ namespace Memorias.Gameplay.Interact
         [Header("Player Settings")]
         [Tooltip("Para termos acesso a posição do grab")]
         public PlayerInteract _interact;
+        [SerializeField] private UnityEvent onArea;
       
         [Header("Floor Detector Setiings")]
         [SerializeField] private float _distanceRayCast;
@@ -18,6 +20,7 @@ namespace Memorias.Gameplay.Interact
 
         private Color _oldColor;
         private Rigidbody _rb;
+        public bool _isOn;
         private void Start()
         {
             _oldColor = _renderer.material.color;
@@ -26,15 +29,23 @@ namespace Memorias.Gameplay.Interact
         void Update()
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position,Vector3.down,out hit, _distanceRayCast,_layerMask))
+            if (Physics.Raycast(transform.position,Vector3.down,out hit, _distanceRayCast,_layerMask) && !_isOn)
             {
                 Debug.Log("Achou!!!!");
+                OnPlace();
+            } else {
+                //_isOn = false;
             }
         }
 
+        void OnPlace() {
+            _isOn = true;
+            onArea.Invoke();
+        }
         public void Deselected() 
         {
             _renderer.material.color = _oldColor;
+
         }
         public void OnInteract()
         {

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Photos
+  - Caixa
   layers:
   - Default
   - TransparentFX
