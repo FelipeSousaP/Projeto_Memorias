@@ -2842,6 +2842,30 @@ PrefabInstance:
       propertyPath: _uiMenuScreen
       value: 
       objectReference: {fileID: 133112810}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.87880754
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.781369
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Size.z
+      value: 0.46433353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Center.x
+      value: -0.041460752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Center.y
+      value: 0.109315515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Center.z
+      value: 0.15301943
+      objectReference: {fileID: 0}
     - target: {fileID: 7024571365526761990, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
       propertyPath: _photoSpawner
       value: 
