@@ -53269,6 +53269,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0978495
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8276609
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Size.z
+      value: 0.47615314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Center.x
+      value: -0.048924744
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Center.y
+      value: 0.08616954
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
+      propertyPath: m_Center.z
+      value: 0.17132199
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914974822616838603, guid: 26434d045f90cdc478b30d187c2a367f, type: 3}
       propertyPath: m_ProvidesContacts
       value: 1
       objectReference: {fileID: 0}
