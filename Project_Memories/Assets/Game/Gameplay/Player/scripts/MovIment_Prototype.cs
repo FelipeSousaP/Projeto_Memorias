@@ -9,8 +9,9 @@ namespace Memorias.Gameplay.Player
         [SerializeField] Rigidbody rb;
         [SerializeField] private Transform _player;
         public float Speed;
-        [HideInInspector] public Vector3 _dir;
-        
+        private float RotationSpeed = 10f;
+
+
         Vector2 valor;
         Transform CAMtransform;
         private void Start()
@@ -46,10 +47,10 @@ namespace Memorias.Gameplay.Player
             FrenteEtras.Normalize(); // não é possivel misturar void com float
             #endregion
             Vector3 Direção = (FrenteEtras * valor.y) + (Lado * valor.x);
-            _dir = Direção;
             if (Direção.magnitude > 0.1f)
             {
-                _player.rotation = Quaternion.LookRotation(Direção);
+                Quaternion targetRotation = Quaternion.LookRotation(Direção);
+                _player.rotation = Quaternion.Slerp(_player.rotation, targetRotation, RotationSpeed * Time.deltaTime);
                 rb.linearVelocity = new Vector3(Direção.x * Speed, rb.linearVelocity.y, Direção.z * Speed);
             }
             else
