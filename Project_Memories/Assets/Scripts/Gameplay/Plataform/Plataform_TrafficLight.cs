@@ -42,7 +42,8 @@ public class Plataform_TrafficLight : MonoBehaviour{
 
             if (_stepsRemaining > 0) {
                 GoNextSinglePoint();
-            } else {
+            } 
+            else {
                 _isMoving = false;
             }
         }

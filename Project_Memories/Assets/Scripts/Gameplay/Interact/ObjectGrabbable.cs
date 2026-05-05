@@ -13,10 +13,12 @@ namespace Memorias.Gameplay.Interact
         [Tooltip("Para termos acesso a posição do grab")]
         public PlayerInteract _interact;
         [SerializeField] private UnityEvent onArea;
-      
+
         [Header("Floor Detector Setiings")]
         [SerializeField] private float _distanceRayCast;
-        [SerializeField] private LayerMask _layerMask;
+        [SerializeField] private LayerMask _Plataformas;
+        [SerializeField] private LayerMask _paredes;
+        [SerializeField] private Vector3 _HalfBox;
 
         private Color _oldColor;
         private Rigidbody _rb;
@@ -28,24 +30,42 @@ namespace Memorias.Gameplay.Interact
         }
         void Update()
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position,Vector3.down,out hit, _distanceRayCast,_layerMask) && !_isOn)
+            Vector3 direction = -transform.right;
+            if (Physics.BoxCast(transform.position, _HalfBox, direction, transform.rotation, _distanceRayCast, _paredes))
             {
-                Debug.Log("Achou!!!!");
-                OnPlace();
-            } else {
-                //_isOn = false;
+                Debug.Log("YESS");
+            }
+            RaycastHit hit;
+            bool col = Physics.Raycast(transform.position, Vector3.down, out hit, _distanceRayCast, _Plataformas);
+            Debug.DrawRay(transform.position, Vector3.down * _distanceRayCast, col ? Color.green : Color.red);
+            if (col)
+            {
+                Debug.Log("tocou no chão");
+                if (!_isOn)
+                {
+                    OnPlace(hit.transform);
+                }
+            }
+            else
+            {
+                if (_isOn)
+                {
+                    _isOn = false;
+                    transform.SetParent(null);
+                }
             }
         }
 
-        void OnPlace() {
+        void OnPlace(Transform plataform)
+        {
             _isOn = true;
+            transform.SetParent(plataform);
             onArea.Invoke();
         }
+
         public void Deselected() 
         {
             _renderer.material.color = _oldColor;
-
         }
         public void OnInteract()
         {
@@ -58,6 +78,11 @@ namespace Memorias.Gameplay.Interact
         {
             _renderer.material.color = _SelectedColor;
             _rb.isKinematic = true;
+        }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position, _HalfBox * 2);
         }
     }
 }
