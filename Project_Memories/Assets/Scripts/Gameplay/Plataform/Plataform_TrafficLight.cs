@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plataform_TrafficLight : MonoBehaviour{
+public class Plataform_TrafficLight : MonoBehaviour
+{
     [Header("Points")]
     [SerializeField] private List<Transform> _points = new List<Transform>();
     [SerializeField] private Transform _mainPlat;
@@ -13,43 +14,51 @@ public class Plataform_TrafficLight : MonoBehaviour{
     private int _currentPoint = 0;
     private bool _isMoving = false;
     private Transform _targetPoint;
-
     private int _stepsRemaining = 0;
+    private Rigidbody _rbPlat;
 
-    private void Awake() {
+    private void Awake()
+    {
+        _rbPlat = _mainPlat.GetComponent<Rigidbody>();
         SetPoints();
         _mainPlat.position = _points[0].position;
     }
 
-    private void Update() {
+    private void FixedUpdate()
+    {
         if (_isMoving)
             MoveToPoint();
     }
 
-    private void MoveToPoint() {
+    private void MoveToPoint()
+    {
         if (_targetPoint == null) return;
 
-        _mainPlat.position = Vector3.MoveTowards(
-            _mainPlat.position,
+        Vector3 nextPos = Vector3.MoveTowards(
+            _rbPlat.position,
             _targetPoint.position,
-            _speed * Time.deltaTime
+            _speed * Time.fixedDeltaTime
         );
 
-        if (Vector3.Distance(_mainPlat.position, _targetPoint.position) < 0.05f) {
-            _mainPlat.position = _targetPoint.position;
-
+        _rbPlat.MovePosition(nextPos);
+        if (Vector3.Distance(_rbPlat.position, _targetPoint.position) < 0.05f)
+        {
+            _rbPlat.position = _targetPoint.position;
             _stepsRemaining--;
 
-            if (_stepsRemaining > 0) {
+            if (_stepsRemaining > 0)
+            {
                 GoNextSinglePoint();
-            } 
-            else {
+            }
+            else
+            {
                 _isMoving = false;
             }
         }
     }
 
-    public void NextPoint() {
+    public void NextPoint()
+    {
         if (_points.Count == 0 || _isMoving) return;
 
         _stepsRemaining = 2;
@@ -57,22 +66,39 @@ public class Plataform_TrafficLight : MonoBehaviour{
         _isMoving = true;
     }
 
-    private void GoNextSinglePoint() {
+    private void GoNextSinglePoint()
+    {
         _currentPoint++;
-
         if (_currentPoint >= _points.Count)
             _currentPoint = 0;
-
         _targetPoint = _points[_currentPoint];
     }
-
-    private void SetPoints() {
+    private void SetPoints()
+    {
         _points.Clear();
-
         if (_pointRoot == null) return;
-
-        foreach (Transform t in _pointRoot) {
+        foreach (Transform t in _pointRoot)
+        {
             _points.Add(t);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") || other.CompareTag("Caixa"))
+        {
+            Debug.Log("player");
+            other.transform.SetParent(_mainPlat);
+            if (!_isMoving)
+            {
+                NextPoint();
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") || other.CompareTag("Caixa"))
+        {
+            other.transform.SetParent(null);
         }
     }
 }

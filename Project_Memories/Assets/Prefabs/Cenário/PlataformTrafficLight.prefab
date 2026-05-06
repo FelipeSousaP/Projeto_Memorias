@@ -9,10 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8153254311486762641}
-  - component: {fileID: 929645502000556698}
-  - component: {fileID: 6431939474714761408}
   - component: {fileID: 9220843212522762224}
-  - component: {fileID: 1683977514094590679}
   m_Layer: 6
   m_Name: Plat
   m_TagString: Untagged
@@ -36,39 +33,6 @@ Transform:
   - {fileID: 8688320641911321565}
   m_Father: {fileID: 4415843834581921266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &929645502000556698
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172468527876205357}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 5, y: 0.5, z: 2.5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6431939474714761408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172468527876205357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9e1a377b2baad7478bc6ebb44399543, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Plataform_Plataform_Move
 --- !u!65 &9220843212522762224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -90,33 +54,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 0.5, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1683977514094590679
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172468527876205357}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 1
 --- !u!1 &1733725477578568054
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +98,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4415843834581921266}
-  - component: {fileID: 4889800562060659254}
   m_Layer: 6
   m_Name: PlataformTrafficLight
   m_TagString: Untagged
@@ -186,26 +122,6 @@ Transform:
   - {fileID: 3271375090862264503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &4889800562060659254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4272456791413985022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5330abf35e058654aba63f74fb2c0be9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Plataform_TrafficLight
-  _points:
-  - {fileID: 4881609695805713231}
-  - {fileID: 2576555117598101375}
-  - {fileID: 3655696917964626876}
-  - {fileID: 8972257631360717085}
-  _mainPlat: {fileID: 8153254311486762641}
-  _pointRoot: {fileID: 3271375090862264503}
-  _speed: 2
 --- !u!1 &7523898742246358172
 GameObject:
   m_ObjectHideFlags: 0
