@@ -31,7 +31,8 @@ public class PlayerMenu : MonoBehaviour
     public void StartGameplay()
     {
         _gameplayStarted = true;
-        StartCoroutine(HideCursor());
+        _menuOpened = false; 
+        HideCursor();
     }
 
     private void ToggleMenu()
@@ -40,27 +41,26 @@ public class PlayerMenu : MonoBehaviour
 
         if (_menuOpened)
         {
+            // Abrindo Menu
             ShowCursor();
-            // Aqui chamamos o NavigationManager para mostrar o menu
-            FindObjectOfType<NavigationManager>().SwitchToSettings(); // Exemplo: abre configurações
+            FindObjectOfType<NavigationManager>().SwitchToSettings();
         }
         else
         {
-            StartCoroutine(HideCursor());
-            FindObjectOfType<NavigationManager>().BackToMain(); // Ou uma função CloseAll
+            HideCursor();
+            FindObjectOfType<NavigationManager>().StartGameSequence();
         }
     }
 
     #region Cursor
-    private void ShowCursor()
+    public void ShowCursor()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    private IEnumerator HideCursor()
+    public void HideCursor()
     {
-        yield return new WaitForEndOfFrame();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
