@@ -412,7 +412,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4805976726844923008}
-  - component: {fileID: 6503753935164304190}
   - component: {fileID: 3815786187433847184}
   - component: {fileID: 4976387692474753081}
   - component: {fileID: 1539206105264519774}
@@ -438,23 +437,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8385652763722271183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6503753935164304190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553645710605169322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f94a58267ea5344b118b02ad653eed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Memorias.Gameplay::MovIment_Prototype
-  MoveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  rb: {fileID: 8043651562204487747}
-  _player: {fileID: 8385652763722271183}
-  Speed: 5
-  _dir: {x: 0, y: 0, z: 0}
 --- !u!114 &3815786187433847184
 MonoBehaviour:
   m_ObjectHideFlags: 0
