@@ -16,7 +16,7 @@ namespace Memorias.Gameplay.Player
         [SerializeField] private Rigidbody _rb;
 
         [Header("RayCast Settings")]
-        [SerializeField] private Transform _player;
+        [SerializeField] private Transform _offSet;
         [SerializeField] private float _distanceRay;
         [SerializeField] private LayerMask _layerMask;
         
@@ -47,16 +47,16 @@ namespace Memorias.Gameplay.Player
                 if (IsGrounded())
                 {
                     _Quantospulosdeu = 0;
-                    Debug.Log("No chão: Contador resetado.");
                 }
 
                 if (_Quantospulosdeu < _Quantospulospodedar)
                 {
-                    _animator.SetTrigger(_jumpCondition);
+                    _animator.SetBool(_jumpCondition, true);
+                    _animator.SetBool("IsGrounded", false);
+
                     _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z); //Para resetar a velocidade causada pelos inputs do move + o Pulo
                     _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                     _Quantospulosdeu++;
-                    Debug.Log($"Pulou! Total de pulos: {_Quantospulosdeu}");
                 }
             }
         }
@@ -64,15 +64,14 @@ namespace Memorias.Gameplay.Player
         private void Update() => _animator.SetBool("IsGrounded", IsGrounded());
         private bool IsGrounded()
         {
-            return Physics.Raycast(_player.position, Vector3.down, _distanceRay, _layerMask);
+            return Physics.Raycast(_offSet.position, Vector3.down, _distanceRay, _layerMask);
         }
 
         private void OnDrawGizmos()
         {
-            if (_player == null) return;
             Gizmos.color = IsGrounded() ? Color.green : Color.red;
             Vector3 direction = Vector3.down * _distanceRay;
-            Gizmos.DrawRay(_player.position, direction);
+            Gizmos.DrawRay(_offSet.position, direction);
         }
     }
 }
