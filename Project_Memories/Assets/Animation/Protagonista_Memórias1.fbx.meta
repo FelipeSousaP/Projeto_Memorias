@@ -3,7 +3,17 @@ guid: 6248001ca0ddfb94cbd52c3a4b814b80
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corpo Protagonista
+    second: {fileID: 2100000, guid: b1b01b505c8152b438ee734595a4d919, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rosto_Protagonista
+    second: {fileID: 2100000, guid: 6374827375301154d90868c32ed4b63f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
