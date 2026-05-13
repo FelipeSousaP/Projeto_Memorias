@@ -20,34 +20,40 @@ public class NavigationManager : MonoBehaviour
     }
 
     public void SwitchToCredits() => ChangeMenu(creditsMenu);
-    public void SwitchToSettings() => ChangeMenu(settingsMenu);
+    public void SwitchToSettings()
+    {
+        if (_actionPlayer != null) _actionPlayer.SetActive(false);
+        if (currentActiveMenu != null)
+        {
+            currentActiveMenu.Hide();
+        }
+
+        if (settingsMenu != null)
+        {
+            settingsMenu.Show();
+            currentActiveMenu = settingsMenu;
+        }
+        else
+        {
+            Debug.LogError("NavigationManager: SettingsMenu não está arrastado no Inspetor!");
+        }
+    }
     public void SwitchToControls() => ChangeMenu(controlsMenu); 
     public void BackToMain() => ChangeMenu(mainMenu);
     public void StartGameSequence()
     {
-        mainMenu.Hide();
-        _actionPlayer.SetActive(true);
-
-        // Acessa o PlayerMenu para esconder o cursor
-        PlayerMenu pm = FindObjectOfType<PlayerMenu>();
+        if (currentActiveMenu != null) currentActiveMenu.Hide();
+        if (_actionPlayer != null) _actionPlayer.SetActive(true);
+        PlayerMenu pm = Object.FindAnyObjectByType<PlayerMenu>();
         if (pm != null)
         {
             pm.StartGameplay();
-            pm.HideCursor();
         }
     }
 
     private void ChangeMenu(MenuPanel targetMenu)
     {
-        _actionPlayer.SetActive(false);
-
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-
-        if (currentActiveMenu != null)
-        {
-            currentActiveMenu.Hide();
-        }
+        if (currentActiveMenu != null) currentActiveMenu.Hide();
 
         targetMenu.Show();
         currentActiveMenu = targetMenu;

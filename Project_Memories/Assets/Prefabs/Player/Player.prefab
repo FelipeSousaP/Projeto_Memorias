@@ -415,7 +415,6 @@ GameObject:
   - component: {fileID: 6503753935164304190}
   - component: {fileID: 3815786187433847184}
   - component: {fileID: 4976387692474753081}
-  - component: {fileID: 1539206105264519774}
   m_Layer: 0
   m_Name: Action
   m_TagString: Untagged
@@ -453,8 +452,8 @@ MonoBehaviour:
   MoveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   rb: {fileID: 8043651562204487747}
   _player: {fileID: 8385652763722271183}
+  _audioType: 0
   Speed: 5
-  _dir: {x: 0, y: 0, z: 0}
 --- !u!114 &3815786187433847184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,21 +493,6 @@ MonoBehaviour:
   _distanceRaycast: 1
   _grabPosition: {fileID: 5938494154669814113}
   _offSetGrab: {x: 0, y: 0.3, z: 1.15}
---- !u!114 &1539206105264519774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553645710605169322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a6ec0583306e3448842cd37cb0d7cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Diario_Prototype
-  _uiAction: {fileID: -5131268149803587958, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _startScreen: {fileID: 0}
-  _uiMenuScreen: {fileID: 0}
 --- !u!1 &8347281543016096674
 GameObject:
   m_ObjectHideFlags: 0

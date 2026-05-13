@@ -23,6 +23,7 @@ public class PlayerMenu : MonoBehaviour
         {
             if (_uiAction.action.WasPressedThisFrame())
             {
+                Debug.Log("Esc clciado");
                 ToggleMenu();
             }
         }
