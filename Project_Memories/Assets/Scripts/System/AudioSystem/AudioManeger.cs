@@ -24,9 +24,29 @@ namespace Memorias.System.AudioSystem
             _audioSource = GetComponent<AudioSource>();
         }
 
-        public void PlaySound(AudioType audioType,float volume = 1)
+        public void PlaySFXSound(SFXType audioType,float volume = 1)
         {
             Instance._audioSource.PlayOneShot(_allSounds[(int)audioType], volume);     
+        }
+
+        public void ToggleMusic()
+        {
+            _audioSource.mute = !_audioSource.mute;
+        }
+
+        public void ToggleSFX()
+        {
+            _audioSource.mute = !_audioSource.mute;
+        }
+
+        public void MusicVolume(float volume)
+        {
+            Instance._audioSource.volume = volume;
+        }
+
+        public void SFXVolume(float volume)
+        {
+            Instance._audioSource.volume = volume;
         }
     }
 }

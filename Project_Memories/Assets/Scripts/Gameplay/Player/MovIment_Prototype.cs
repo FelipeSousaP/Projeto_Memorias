@@ -8,7 +8,6 @@ namespace Memorias.Gameplay.Player
         [SerializeField] InputActionReference MoveAction;
         [SerializeField] Rigidbody rb;
         [SerializeField] private Transform _player;
-        [SerializeField] private AudioType _audioType;
         public float Speed;
         private float RotationSpeed = 10f;
 

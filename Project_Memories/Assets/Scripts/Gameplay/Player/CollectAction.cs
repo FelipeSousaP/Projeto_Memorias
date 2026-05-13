@@ -12,7 +12,7 @@ namespace Memorias.Gameplay.Player
         {
             if (other.TryGetComponent<keyRotation>(out keyRotation component)) //Substituir por GetComponent<Photo>() 
             {
-                AudioManeger.Instance.PlaySound(AudioType.CollectKey);
+                AudioManeger.Instance.PlaySFXSound(SFXType.CollectKey);
                 Debug.Log($"Coletado: {component.name}");
                 //adicionar em uma lista
                 ObjectPoolController.Instance.objectPool.SetPool(other.gameObject);

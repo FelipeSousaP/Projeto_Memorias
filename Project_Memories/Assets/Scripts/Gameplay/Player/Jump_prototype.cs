@@ -49,7 +49,7 @@ namespace Memorias.Gameplay.Player
 
                 if (_Quantospulosdeu < _Quantospulospodedar)
                 {
-                    AudioManeger.Instance.PlaySound(AudioType.Jump);
+                    AudioManeger.Instance.PlaySFXSound(SFXType.Jump);
                     _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z); //Para resetar a velocidade causada pelos inputs do move + o Pulo
                     _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                     _Quantospulosdeu++;
