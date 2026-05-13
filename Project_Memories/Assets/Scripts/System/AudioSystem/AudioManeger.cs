@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Memorias.System.AudioSystem
 {
-    [RequireComponent(typeof(AudioSource))]
     public class AudioManeger : MonoBehaviour
     {
         [SerializeField] private AudioClip[] _allSounds;
-        private AudioSource _audioSource;
+        [SerializeField] private AudioSource _SFXSource;
+        [SerializeField] private AudioSource _MusicSource;
         public static AudioManeger Instance;
         private void Awake()
         {
@@ -21,32 +21,36 @@ namespace Memorias.System.AudioSystem
         }
         private void Start()
         {
-            _audioSource = GetComponent<AudioSource>();
+            PlayBackground();
         }
 
         public void PlaySFXSound(SFXType audioType,float volume = 1)
         {
-            Instance._audioSource.PlayOneShot(_allSounds[(int)audioType], volume);     
+            Instance._SFXSource.PlayOneShot(_allSounds[(int)audioType], volume);     
         }
 
+        private void PlayBackground()
+        {
+            Instance._MusicSource.Play();
+        }
         public void ToggleMusic()
         {
-            _audioSource.mute = !_audioSource.mute;
+            _MusicSource.mute = !_MusicSource.mute;
         }
 
         public void ToggleSFX()
         {
-            _audioSource.mute = !_audioSource.mute;
+            _SFXSource.mute = !_SFXSource.mute;
         }
 
         public void MusicVolume(float volume)
         {
-            Instance._audioSource.volume = volume;
+            Instance._MusicSource.volume = volume;
         }
 
         public void SFXVolume(float volume)
         {
-            Instance._audioSource.volume = volume;
+            Instance._SFXSource.volume = volume;
         }
     }
 }
