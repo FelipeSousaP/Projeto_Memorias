@@ -21,7 +21,10 @@ public class NewPlataformRotate : MonoBehaviour
     private void FixedUpdate()
     {
         SetRotate();
-        ApplyCentrifugeForce();
+        if (_isCollided)
+        {
+            ApplyCentrifugeForce();
+        }
     }
 
     #region Aplicar rotação na plataforma

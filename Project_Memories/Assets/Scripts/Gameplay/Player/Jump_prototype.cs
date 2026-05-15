@@ -73,7 +73,7 @@ namespace Memorias.Gameplay.Player
         void Execute(float force)
         {
             _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z); //Para resetar a velocidade 
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * force, ForceMode.Impulse);
             _Quantospulosdeu++;
         }
         private void Start() => _oldSpped = _jumpForce;
