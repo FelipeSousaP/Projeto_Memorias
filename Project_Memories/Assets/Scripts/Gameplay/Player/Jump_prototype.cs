@@ -14,6 +14,7 @@ namespace Memorias.Gameplay.Player
         [Header("Physics Settings")]
         [SerializeField] private float _jumpForce;
         [SerializeField] private Rigidbody _rb;
+        [SerializeField] private NewPlataformRotate _plataformRotate;
 
         [Header("RayCast Settings")]
         [SerializeField] private Transform _offSet;
@@ -24,6 +25,8 @@ namespace Memorias.Gameplay.Player
         [Tooltip("Coloque o nome do parametro que está sendo usado para ativar essa animação")]
         [SerializeField] private string _jumpCondition;
         [SerializeField] private Animator _animator;
+
+        private float _oldSpped;
         #endregion
 
         #region Etapa 2: input por evento
@@ -54,12 +57,26 @@ namespace Memorias.Gameplay.Player
                     _animator.SetBool(_jumpCondition, true);
                     _animator.SetBool("IsGrounded", false);
 
-                    _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z); //Para resetar a velocidade causada pelos inputs do move + o Pulo
-                    _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-                    _Quantospulosdeu++;
+                    if (_plataformRotate._isCollided)
+                    {
+                        _jumpForce = _plataformRotate._speedPlataform;
+                        Execute(_jumpForce); 
+                    }
+                    else
+                    {
+                        Execute(_oldSpped);
+                    }
                 }
             }
         }
+
+        void Execute(float force)
+        {
+            _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, 0, _rb.linearVelocity.z); //Para resetar a velocidade 
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _Quantospulosdeu++;
+        }
+        private void Start() => _oldSpped = _jumpForce;
         #endregion
         private void Update() => _animator.SetBool("IsGrounded", IsGrounded());
         private bool IsGrounded()

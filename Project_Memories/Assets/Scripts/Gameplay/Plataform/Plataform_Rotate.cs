@@ -45,23 +45,14 @@ namespace Memorias.Gameplay.Plataform
         {
             if (_activePlayer == null) return;
 
-            // Se o jogador estiver na plataforma OU voando
-            // 1. Aplicar Velocidade Lateral (Tangente)
             Vector3 moveVelocity = _lastCentrifugalDir * _currentPlatformSpeed;
             float yVel = _activePlayer.linearVelocity.y;
             _activePlayer.linearVelocity = new Vector3(moveVelocity.x, yVel, moveVelocity.z);
 
-            // 2. Aplicar Rotação ao corpo do jogador (para ele girar junto)
-            // Só giramos o corpo se ele NÃO estiver voando (opcional)
             if (!_isPlayerFlying)
             {
                 Quaternion playerDeltaRotation = Quaternion.Euler(0, _currentPlatformSpeed * Time.fixedDeltaTime, 0);
                 _activePlayer.MoveRotation(_activePlayer.rotation * playerDeltaRotation);
-            }
-            else
-            {
-                // Se ele estiver voando, checamos se ele tocou o chão para parar
-                CheckForLanding();
             }
         }
 
@@ -78,16 +69,15 @@ namespace Memorias.Gameplay.Plataform
         {
             if (collision.gameObject.GetComponent<PlayerInput>())
             {
-                // Ativa o estado de voo (inércia) conforme seu fluxograma
                 _isPlayerFlying = true;
             }
         }
 
         private void Update()
         {
-            // Atualiza a direção da força continuamente enquanto o jogador está ativo
-            if (_activePlayer != null)
+            if (_activePlayer != null) // ver se tem player
             {
+                //calcular direção de lançametno
                 Vector3 dir = _activePlayer.position - transform.position;
                 dir.y = 0;
                 _lastCentrifugalDir = Vector3.Cross(dir, Vector3.up).normalized;
