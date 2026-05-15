@@ -33,7 +33,7 @@ public class NewPlataformRotate : MonoBehaviour
     #region Aplicar rotação na plataforma
     private void SetRotate()
     {
-        quaternion = Quaternion.Euler(0, _speedPlataform * Time.fixedDeltaTime, 0);
+        quaternion = Quaternion.Euler(0, -_speedPlataform * Time.fixedDeltaTime, 0);
         _rb.MoveRotation(_rb.rotation * quaternion);
     }
     #endregion
