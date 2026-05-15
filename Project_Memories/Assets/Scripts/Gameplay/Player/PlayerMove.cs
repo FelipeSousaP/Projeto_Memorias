@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,7 @@ namespace Memorias.Gameplay.Player
         [SerializeField] private string _walkCondition;
         [SerializeField] private Animator _animator;
 
+        private bool _isEjected = false;
         Vector2 valor;
         Transform CAMtransform;
         private void Start()
@@ -45,6 +47,7 @@ namespace Memorias.Gameplay.Player
         }
         void Update()
         {
+            if (_isEjected) return;
             Vector3 FrenteEtras = CAMtransform.forward;
             Vector3 Lado = CAMtransform.right;
             #region Controle de dados
@@ -66,6 +69,20 @@ namespace Memorias.Gameplay.Player
                 rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
                 _animator.SetBool(_walkCondition, false);
             }
+        }
+
+        public void EjectPlayer(Vector3 force, float duration)
+        {
+            StopAllCoroutines(); // Para garantir que não há duas ejeções a acontecer ao mesmo tempo
+            StartCoroutine(EjectionRoutine(force, duration));
+        }
+
+        private IEnumerator EjectionRoutine(Vector3 force, float duration)
+        {
+            _isEjected = true; 
+            rb.linearVelocity = force;
+            yield return new WaitForSeconds(duration);
+            _isEjected = false; 
         }
     }
 

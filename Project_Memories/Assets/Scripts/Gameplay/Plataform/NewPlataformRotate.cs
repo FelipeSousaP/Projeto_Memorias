@@ -1,3 +1,4 @@
+using Memorias.Gameplay.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,12 @@ public class NewPlataformRotate : MonoBehaviour
     [Header("Rotate Settings")]
     public float _speedPlataform;
     [HideInInspector] public bool _isCollided;
+
+    [Header("Ejection Settings")]
+    [Tooltip("Força vertical aplicada para fazer o jogador pular ao sair")]
+    public float _upwardForce = 5f;
+    [Tooltip("Tempo (em segundos) que o jogador perderá o controlo para poder voar")]
+    public float _ejectionDuration = 0.3f;
 
     private Rigidbody _rbObject;
     private Rigidbody _rb;
@@ -65,7 +72,18 @@ public class NewPlataformRotate : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerInput>())
         {
+            PlayerMove playerMovement = collision.gameObject.GetComponentInChildren<PlayerMove>();
+
+            if (playerMovement != null)
+            {
+                Vector3 ejectionForce = _lastCentrifuge * _speedPlataform;
+                ejectionForce.y = _upwardForce;
+                playerMovement.EjectPlayer(ejectionForce, _ejectionDuration);
+                Debug.Log("Jogador ejetado com sucesso! Força: " + ejectionForce);
+            }
+
             _isCollided = false;
+            _rbObject = null;
         }
     }
 }
