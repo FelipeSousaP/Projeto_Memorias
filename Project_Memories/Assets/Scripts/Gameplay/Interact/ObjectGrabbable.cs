@@ -29,12 +29,13 @@ namespace Memorias.Gameplay.Interact
         public void Deselected()
         {
             _renderer.material.color = _oldColor;
+            //_rb.isKinematic = true;
         }
 
         public void OnInteract()
         {
             _renderer.material.color = _interactColor;
-            _rb.isKinematic = false;
+            //_rb.isKinematic = false;
             transform.SetParent(null);
             transform.position = _interact._grabPosition.position;
             transform.rotation = _interact._grabPosition.rotation;
@@ -42,7 +43,7 @@ namespace Memorias.Gameplay.Interact
         public void Selected()
         {
             _renderer.material.color = _SelectedColor;
-            _rb.isKinematic = true;
+            //_rb.isKinematic = true;
         }
     }
 }

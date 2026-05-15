@@ -59,7 +59,7 @@ namespace Memorias.Gameplay.Player
 
                     if (_plataformRotate._isCollided)
                     {
-                        _jumpForce = _plataformRotate._speedPlataform;
+                        _jumpForce = _plataformRotate._pushSpped;
                         Execute(_jumpForce); 
                     }
                     else
