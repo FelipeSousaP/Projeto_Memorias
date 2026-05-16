@@ -1,16 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Exemple_Button : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private UnityEvent _onclick;
 
-    // Update is called once per frame
-    void Update()
+    public void EnableTower()
     {
-        
+        _onclick.Invoke();
     }
 }

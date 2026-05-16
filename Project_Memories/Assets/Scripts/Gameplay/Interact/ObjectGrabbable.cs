@@ -25,6 +25,9 @@ namespace Memorias.Gameplay.Interact
             _oldColor = _renderer.material.color;
             _rb = GetComponent<Rigidbody>();
         }
+        private void Update()
+        {
+        }
 
         public void Deselected()
         {
