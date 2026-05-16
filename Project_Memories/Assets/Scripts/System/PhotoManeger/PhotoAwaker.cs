@@ -1,6 +1,5 @@
 using UnityEngine;
 using Memorias.Framework.ObjectPool;
-using System.Collections;
 namespace Memorias.System.PhotoManeger
 {
     public class PhotoAwaker : MonoBehaviour
