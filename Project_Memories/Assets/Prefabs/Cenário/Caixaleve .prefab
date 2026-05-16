@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Memorias.Gameplay::Memorias.Gameplay.Interact.ObjectGrabbable
   _interactColor: {r: 0.18259154, g: 0.8415094, b: 0.27650803, a: 0}
   _SelectedColor: {r: 0.50303847, g: 0.5471698, b: 0.052652176, a: 0}
-  _renderer: {fileID: 0}
+  _renderer: {fileID: 5000043455324105516}
   onSelect:
     m_PersistentCalls:
       m_Calls: []
@@ -191,6 +191,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0160482ce7d30f442b46cfc62de3ea31, type: 3}
+--- !u!23 &5000043455324105516 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: 0160482ce7d30f442b46cfc62de3ea31, type: 3}
+  m_PrefabInstance: {fileID: 8819168044306496995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9072857559066483208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0160482ce7d30f442b46cfc62de3ea31, type: 3}
