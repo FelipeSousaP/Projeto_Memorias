@@ -58,5 +58,11 @@ namespace Memorias.Gameplay.Interact
             _renderer.material.color = _SelectedColor;
             //_rb.isKinematic = true;
         }
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Vector3 endPosition = transform.position + (Vector3.down * Distance);
+            Gizmos.DrawLine(transform.position, endPosition);
+        }
     }
 }
