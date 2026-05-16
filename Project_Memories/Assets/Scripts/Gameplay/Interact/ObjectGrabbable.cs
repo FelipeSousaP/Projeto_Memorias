@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,9 +14,9 @@ namespace Memorias.Gameplay.Interact
         [Header("Player Settings")]
         public PlayerInteract _interact;
 
-        /*[Header("Floor Detector Setiings")]
-        [SerializeField] private LayerMask _paredes;
-        [SerializeField] private Vector3 _HalfBox;*/
+        [Header("Floor Detector Setiings")]
+        [SerializeField] private LayerMask _botão;
+        [SerializeField] private float Distance;
 
         private Color _oldColor;
         private Rigidbody _rb;
@@ -27,6 +28,15 @@ namespace Memorias.Gameplay.Interact
         }
         private void Update()
         {
+            if (Physics.Raycast(transform.position, Vector3.down,out RaycastHit hit ,Distance, _botão))
+            {
+                
+                Exemple_Button _button = hit.collider.GetComponent<Exemple_Button>();
+                if (_button != null)
+                {
+                    _button.EnableTower();
+                }
+            }
         }
 
         public void Deselected()
