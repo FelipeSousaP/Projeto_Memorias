@@ -9,6 +9,10 @@ namespace Memorias.Gameplay.Interact
         [SerializeField] private Color _interactColor;
         [SerializeField] private Color _SelectedColor;
         [SerializeField] private Renderer _renderer;
+        public UnityEvent onSelect;
+        public UnityEvent onDeselect;
+        public LayerMask areaLayer;
+        RaycastHit hit;
 
         [Header("Player Settings")]
         public PlayerInteract _interact;
@@ -32,6 +36,9 @@ namespace Memorias.Gameplay.Interact
         public void Deselected()
         {
             _renderer.material.color = _oldColor;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, areaLayer)) {
+                onDeselect.Invoke();
+            }
             //_rb.isKinematic = true;
         }
 
@@ -46,6 +53,7 @@ namespace Memorias.Gameplay.Interact
         public void Selected()
         {
             _renderer.material.color = _SelectedColor;
+            onSelect.Invoke();
             //_rb.isKinematic = true;
         }
     }
