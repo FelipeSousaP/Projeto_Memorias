@@ -24,11 +24,13 @@ namespace Memorias.Gameplay.Interact
 
         private Color _oldColor;
         private Rigidbody _rb;
+        public Vector3 startPos;
 
         private void Start()
         {
             _oldColor = _renderer.material.color;
             _rb = GetComponent<Rigidbody>();
+            startPos = transform.position;
         }
         private void Update()
         {
